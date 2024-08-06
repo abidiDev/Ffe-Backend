@@ -1,5 +1,6 @@
 package com.pfe.prescription_microservice.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ public class Symptome {
     private String description;
 
     @OneToMany(mappedBy = "symptome")
+    @JsonBackReference
     private Set<Prescription> prescriptions;
 
     // Getters and Setters
