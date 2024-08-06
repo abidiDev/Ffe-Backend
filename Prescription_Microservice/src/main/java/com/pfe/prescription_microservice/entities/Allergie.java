@@ -1,5 +1,6 @@
 package com.pfe.prescription_microservice.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -19,15 +20,18 @@ public class Allergie {
 
     @ManyToOne
     @JoinColumn(name = "patient_id")
+    @JsonBackReference
+
     private Patient patient;
 
     @ManyToOne
     @JoinColumn(name = "medicament_id")
+    @JsonBackReference
+
     private Medicament medicament;
 
     private Date dateDetection;
     private String description;
 
-    // Getters and Setters
 }
 

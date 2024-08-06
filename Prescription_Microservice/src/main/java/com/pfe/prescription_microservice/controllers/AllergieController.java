@@ -10,6 +10,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/allergies")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
+
 public class AllergieController {
      AllergieService allergieService;
 

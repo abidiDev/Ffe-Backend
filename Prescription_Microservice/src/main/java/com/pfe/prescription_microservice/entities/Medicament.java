@@ -1,4 +1,6 @@
 package com.pfe.prescription_microservice.entities;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -20,12 +22,15 @@ public class Medicament {
     private String description;
     private String dosageRecommande;
     private String effetsSecondaires;
+    private int quantite;
 
-    @ManyToMany(mappedBy = "medicaments")
-    private Set<Prescription> prescriptions;
+
+    @OneToMany(mappedBy = "medicament", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference
+    private Set<PrescriptionMedicament> prescriptionMedicaments;
 
     @OneToMany(mappedBy = "medicament")
+    @JsonManagedReference
     private Set<Allergie> allergies;
 
-    // Getters and Setters
 }

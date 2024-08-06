@@ -1,5 +1,6 @@
 package com.pfe.prescription_microservice.services;
 
+import com.pfe.prescription_microservice.dtos.PatientDTO;
 import com.pfe.prescription_microservice.entities.Patient;
 
 import java.util.List;
@@ -9,6 +10,7 @@ public interface PatientService {
     List<Patient> getAllPatients();
     Optional<Patient> getPatientById(Long id);
     Patient createPatient(Patient patient);
+    Patient createPatientWithDetails(PatientDTO patientDTO) ;
     Patient updatePatient(Long id, Patient patient);
     void deletePatient(Long id);
 
